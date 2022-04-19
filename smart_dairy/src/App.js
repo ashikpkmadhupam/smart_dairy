@@ -1,32 +1,24 @@
 import './App.css';
-import {useState} from 'react'
-import Web3 from 'web3';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
+import About from './components/About/About';
+import Login from './components/Login/Login';
+import Logout from './components/Logout/Logout';
+import Home from './components/Home/Home';
+import AddDairy from './components/AddDairy/AddDairy';
 
 function App() {
 
-  const [account, setAccount] = useState("");
-
-  let login = async () => {
-    alert("Loggin in");
-    const web3 = new Web3(Web3.givenProvider || 'http://localhost:8545');
-    const accounts = await web3.eth.requestAccounts();
-    setAccount(accounts[0]);
-  }
-
-  let logout = async () => {
-    alert("Logging out");
-    setAccount("Not logged in");
-  }
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <button onClick={login}>Login</button>
-        <button onClick={logout}>Logout</button>
-        <p>Logged in with {account}</p>
-      </header>
-    </div>
+    <Router>
+        <Routes>
+          <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/about" element={<About/>}/>
+          <Route exact path="/login" element={<Login/>}/>
+          <Route exact path="/logout" element={<Logout/>}/>
+          <Route exact path="/add" element={<AddDairy/>}/>
+        </Routes>
+    </Router>
   );
 }
 
