@@ -11,10 +11,10 @@ contract Dairy {
         owner = payable(msg.sender);
     }
 
-    function addDairy (string memory _date, string memory _content) payable public {
-        require(msg.value >=0.0000005 ether , "Not enough fund sent");
-        myDairy[msg.sender][_date]=_content;
+    function addDairy (string memory _date, string memory _content) public payable{
+        
         owner.transfer(msg.value);
+        myDairy[msg.sender][_date]=_content;
     }
 
     function getDairy(string memory _date) public view returns(string memory) {

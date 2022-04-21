@@ -6,6 +6,7 @@ import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 import Home from './components/Home/Home';
 import AddDairy from './components/AddDairy/AddDairy';
+import GetDairy from './components/GetDairy/GetDairy';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/login" element={<Login/>}/>
           <Route exact path="/logout" element={<Logout/>}/>
           <Route exact path="/add" element={<AddDairy/>}/>
+          <Route exact path="/view" element={<GetDairy/>}/>
         </Routes>
     </Router>
   );
